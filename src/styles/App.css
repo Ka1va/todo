@@ -1,0 +1,13 @@
+#root {
+  display: flex;
+  justify-content: center;
+}
+.taskList {
+  display: flex;
+  padding: 10px;
+  border: 2px solid purple;
+  border-radius: 50px;
+  margin-top: 15px;
+  justify-content: space-between;
+  align-items: center;
+}

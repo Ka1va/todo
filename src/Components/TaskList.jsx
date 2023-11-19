@@ -1,11 +1,12 @@
 import React from "react";
 import TaskListItem from "./TaskListItem";
 
-const TaskList = ({ tasks, remove, status }) => {
+const TaskList = ({ tasks, remove, status, edit }) => {
   return (
     <div>
       {tasks.map((task, index) => (
         <TaskListItem
+          edit={edit}
           remove={remove}
           status={status}
           number={index + 1}
@@ -13,7 +14,6 @@ const TaskList = ({ tasks, remove, status }) => {
           key={task.id}
         />
       ))}
-      ;
     </div>
   );
 };

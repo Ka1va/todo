@@ -6,8 +6,8 @@ pipeline {
   stages {
     stage('add ssh_key') {
     script {
-      def output1 = sh(script: "$(docker ps -a -q)", returnStdout: true)
-      def output2 = sh(script: "$(docker images -q)", returnStdout: true)
+      def output1 = sh(script: "\$(docker ps -a -q)", returnStdout: true)
+      def output2 = sh(script: "\$(docker images -q)", returnStdout: true)
            }
       steps {
         withCredentials([string(credentialsId: 'host_user', variable: 'SSH_USER'),string(credentialsId: 'ssh_host', variable: 'SSH_HOST')]) {

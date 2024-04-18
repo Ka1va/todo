@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment { 
-  DOCKERHUB_CREDENTIALS = credentials('fusion-docker-token')
+  DOCKERHUB_CREDENTIALS = credentials('docker-hub-test')
   }
   stages {
     stage('add ssh_key') {

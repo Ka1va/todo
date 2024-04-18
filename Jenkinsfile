@@ -14,8 +14,8 @@ pipeline {
             sh 'ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd ~/workspace && docker run -d -p 80:80 ka1va/jenkins_test:latest"'
             sh 'ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker logout"'
             sh 'ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "sleep 150 && yes | docker image prune -af && yes | docker system prune"'
-        }   
-        }
+            }   
+          }
         }
       }
    }

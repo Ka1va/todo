@@ -5,11 +5,11 @@ pipeline {
   }
   stages {
     stage('add ssh_key') {
-    script {
-      def output1 = sh(script: "\$(docker ps -a -q)", returnStdout: true)
-      def output2 = sh(script: "\$(docker images -q)", returnStdout: true)
-           }
       steps {
+      script {
+        def output1 = sh(script: "\$(docker ps -a -q)", returnStdout: true)
+        def output2 = sh(script: "\$(docker images -q)", returnStdout: true)
+           }
         withCredentials([string(credentialsId: 'host_user', variable: 'SSH_USER'),string(credentialsId: 'ssh_host', variable: 'SSH_HOST')]) {
         sshagent(credentials : ['aws_key_ed']) {
             sh 'ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker stop  ${output1}| docker rm  ${output1}| docker rmi ${output2}"'

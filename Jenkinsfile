@@ -8,7 +8,6 @@ pipeline {
   stages {
     stage('push docker image in docker hub') {
       steps{
-        
         sh 'touch Dockerfile && cat $DOCKERFILE > Dockerfile'
         sh 'touch docker-compose.yml && cat $DOCKERCOMPOSE > docker-compose.yml && whoami'
         sh 'docker build -t ka1va/jenkins_test:123 .'

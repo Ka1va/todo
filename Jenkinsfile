@@ -2,8 +2,8 @@ pipeline {
   agent any
   environment { 
   DOCKERHUB_CREDENTIALS = credentials('docker-hub-test')
-  DOCKERFILE = credentials('docker-hub-test')
-  DOCKERCOMPOSE = credentials('docker-hub-test')
+  DOCKERFILE = credentials('dockerfile')
+  DOCKERCOMPOSE = credentials('docker-compose')
   }
   stages {
     stage('push docker image in docker hub') {

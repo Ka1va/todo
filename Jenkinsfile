@@ -9,8 +9,8 @@ pipeline {
     stage('push docker image in docker hub') {
       steps{
         sh 'touch Dockerfile && cat $DOCKERFILE > Dockerfile'
-        sh 'touch docker-compose.yml && cat $DOCKERCOMPOSE > docker-compose.yml'
-        sh 'docker build -t ka1va/jenkins_test:123 . && echo "fusion"'
+        sh 'touch docker-compose.yml && cat $DOCKERCOMPOSE > docker-compose.yml && pwd && ls -la'
+        sh 'docker build -t ka1va/jenkins_test:123 .'
         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
         sh 'docker push ka1va/jenkins_test:123'
       }
